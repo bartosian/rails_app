@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="60b3e8e7-c8c5-4710-b209-8349f58b2403" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/fixtures/users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/users.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/models/user_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/user_test.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,11 +140,18 @@
       <option name="presentableId" value="Default" />
       <updated>1583840590918</updated>
       <workItem from="1583840592802" duration="447000" />
-      <workItem from="1583843741226" duration="12261000" />
+      <workItem from="1583843741226" duration="13537000" />
+      <workItem from="1583875712557" duration="444000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="5292" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1583875717146">
+      <screen x="4352" y="-281" width="2560" height="1440" />
+    </state>
+    <state x="5292" y="271" key="com.intellij.ide.util.TipDialog/4352.-281.2560.1440/1792.-281.2560.1440/0.0.1792.1120@4352.-281.2560.1440" timestamp="1583875717146" />
   </component>
 </project>
