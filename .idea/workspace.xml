@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="60b3e8e7-c8c5-4710-b209-8349f58b2403" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/users_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/users_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +143,8 @@
       <workItem from="1583840592802" duration="447000" />
       <workItem from="1583843741226" duration="13537000" />
       <workItem from="1583875712557" duration="2794000" />
-      <workItem from="1583885979058" duration="5358000" />
+      <workItem from="1583885979058" duration="9930000" />
+      <workItem from="1583964651519" duration="2321000" />
     </task>
     <servers />
   </component>
@@ -150,10 +152,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="658" y="429" key="com.intellij.ide.util.TipDialog" timestamp="1583925647382">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="2732" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1583964657248">
+      <screen x="1792" y="-258" width="2560" height="1338" />
     </state>
     <state x="658" y="429" key="com.intellij.ide.util.TipDialog/4352.-258.2560.1337/1792.-258.2560.1417/0.23.1792.1097@0.23.1792.1097" timestamp="1583925647382" />
+    <state x="2732" y="237" key="com.intellij.ide.util.TipDialog/4352.-258.2560.1417/1792.-258.2560.1338/0.23.1792.1097@1792.-258.2560.1338" timestamp="1583964657248" />
     <state x="5292" y="271" key="com.intellij.ide.util.TipDialog/4352.-281.2560.1440/1792.-281.2560.1440/0.0.1792.1120@4352.-281.2560.1440" timestamp="1583875717146" />
   </component>
 </project>
