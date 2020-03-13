@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="60b3e8e7-c8c5-4710-b209-8349f58b2403" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/sessions_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/sessions_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/users.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/integration/users_login_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration/users_login_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Rails.Development: sample_app">
     <configuration name="Development: sample_app" type="RailsRunConfigurationType" factoryName="Rails">
@@ -144,7 +142,9 @@
       <workItem from="1583843741226" duration="13537000" />
       <workItem from="1583875712557" duration="2794000" />
       <workItem from="1583885979058" duration="9930000" />
-      <workItem from="1583964651519" duration="4216000" />
+      <workItem from="1583964651519" duration="6070000" />
+      <workItem from="1584021651663" duration="106000" />
+      <workItem from="1584021783771" duration="1878000" />
     </task>
     <servers />
   </component>
@@ -152,11 +152,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2732" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1583964657248">
-      <screen x="1792" y="-258" width="2560" height="1338" />
+    <state x="5292" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1584021652116">
+      <screen x="4352" y="-281" width="2560" height="1440" />
     </state>
     <state x="658" y="429" key="com.intellij.ide.util.TipDialog/4352.-258.2560.1337/1792.-258.2560.1417/0.23.1792.1097@0.23.1792.1097" timestamp="1583925647382" />
     <state x="2732" y="237" key="com.intellij.ide.util.TipDialog/4352.-258.2560.1417/1792.-258.2560.1338/0.23.1792.1097@1792.-258.2560.1338" timestamp="1583964657248" />
-    <state x="5292" y="271" key="com.intellij.ide.util.TipDialog/4352.-281.2560.1440/1792.-281.2560.1440/0.0.1792.1120@4352.-281.2560.1440" timestamp="1583875717146" />
+    <state x="5292" y="271" key="com.intellij.ide.util.TipDialog/4352.-281.2560.1440/1792.-281.2560.1440/0.0.1792.1120@4352.-281.2560.1440" timestamp="1584021652116" />
   </component>
 </project>
