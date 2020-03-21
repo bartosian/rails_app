@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :books
   root   'static_pages#home'
 
   get    '/help',    to:  'static_pages#help'
