@@ -1,0 +1,40 @@
+addReviewers: true
+addAssignees: author
+# A list of reviewers to be added to pull requests (GitHub user name)
+reviewers:
+  - prabhatb
+  - joellusky
+  - reymillenium
+  - huezoaa
+  - jdiago
+  - roger88ist
+  - mariosanchezkipu
+  - allen-penate
+  - RobGelbman
+  - rileygelwicks
+  - ostumpfsk
+  - MadBomber
+  - ealvaro
+  - dougsbarbour
+  - tom-walchli
+  - jyotsnan
+  - melheffe
+  - gardwired
+  - brpocock
+  - apita1973
+  - aguayma-kipu
+  - mcollie007
+  - bartosian
+  - philetos
+
+# A number of reviewers added to the pull request
+# Set 0 to add all the reviewers (default: 0)
+numberOfReviewers: 3
+
+# A list of keywords to be skipped the process that add reviewers if pull requests include it
+skipKeywords:
+  - WIP
+
+filterLabels:
+  exclude:
+    - WIP

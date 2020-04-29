@@ -1,0 +1,108 @@
+env:
+  RAILS_ENV: test
+  KIPU_URL: ${{ secrets.KIPU_URL }}
+  KIS_USER_TOKEN: ${{ secrets.KIS_USER_TOKEN }}
+  KIS_URL: ${{ secrets.KIS_URL }}
+  CAS_HOST: ${{ secrets.CAS_HOST }}
+  BUNDLE_ENTERPRISE__CONTRIBSYS__COM: ${{ secrets.BUNDLE_ENTERPRISE__CONTRIBSYS__COM }}
+  BUNDLE_GITHUB__COM: ${{ secrets.BUNDLE_GITHUB__COM }}
+
+name: rspec_knapsack_tests
+on:
+ watch:
+   types: [started]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.actor == github.event.repository.owner.login
+    services:
+      postgres:
+        image: postgres:11.7-alpine
+        ports: ['5432:5432']
+        env:
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        # needed because the postgres container does not provide a healthcheck
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis
+        ports: ['6379:6379']
+        options: --entrypoint redis-server
+    strategy:
+      fail-fast: false
+      matrix:
+        ci_node_total: [15]
+        ci_node_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Ruby version specified in `.ruby-version`
+        uses: ruby/setup-ruby@v1
+      - name: Install required apt packages
+        run: sudo apt update && sudo apt install qt5-default libqt5webkit5-dev libxml2-dev libxslt-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x postgresql-contrib libpq-dev imagemagick xvfb
+      - name: Setup cache key and directory for gems cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-use-ruby-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Create file for test-reports
+        run: mkdir reports reports-zip && touch reports/test-report${{ matrix.ci_node_index }}.log
+      - name: Set up bundler and install gems
+        run: |
+          gem install bundler -v 1.17.3
+          bundle config build.nokogiri --use-system-libraries
+          bundle config github.com KipuDevGemsUser:dNsEPTUWMbTumnphFmtjjGb9tKKbtmxT8
+          bundle config enterprise.contribsys.com aa8ac900:18a34bbd
+          bundle config path vendor/bundle
+          bundle check || bundle install --jobs 4 --retry 3
+      - name: Setup Database
+        run: |
+          cp config/database.yml.github-actions config/database.yml
+          RAILS_ENV=test bundle exec rake db:create
+          PGPASSWORD=${{ secrets.PGPASSWORD }} pg_restore --verbose --clean --no-acl --no-owner -h ${{ secrets.DB_SERVER}} -U ${{ secrets.DB_USER_LOCAL }} -d ${{ secrets.DB_NAME }} ${{ secrets.DB_DUMP_LINK }}
+        continue-on-error: true
+        env:
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
+      - name: Run tests
+        continue-on-error: true
+        env:
+          KNAPSACK_PRO_REPO_PATH: ~/gems/knapsack_pro-ruby
+          KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC }}
+          KNAPSACK_PRO_LOG_DIR: reports
+          KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
+          KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
+        run: |
+           bundle exec rake knapsack_pro:queue:rspec > reports/test-report${{ matrix.ci_node_index }}.log
+      - name: Upload coverage results
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: test-report${{ matrix.ci_node_index }}.log
+          path: reports
+      - name: Create Zip File
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip  -qq -r ./reports-zip/$GITHUB_REPOSITORY-$GITHUB_SHA.zip ./reports
+      - name: Push Zip to S3
+        uses: jakejarvis/s3-sync-action@master
+        env:
+          SOURCE_DIR: './reports-zip'
+          DEST_DIR: ${{ secrets.AWS_S3_FOLDER_NAME }}/$GITHUB_WORKFLOW/$GITHUB_RUN_ID
+          AWS_REGION: 'us-east-1'
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
