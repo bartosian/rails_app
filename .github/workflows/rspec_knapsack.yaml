@@ -47,7 +47,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
       - name: Create file for test-reports
-        run: mkdir reports reports-zip && touch reports/test-report${{ matrix.ci_node_index }}.log
+        run: |
+          mkdir reports reports-zip && touch reports/test-report${{ matrix.ci_node_index }}.log
+          echo "Example data output from tests ${{ matrix.ci_node_index }}" > reports/test-report${{ matrix.ci_node_index }}.log
       - name: Set up bundler and install gems
         run: |
           gem install bundler -v 1.17.3
@@ -65,20 +67,6 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
           PGPASSWORD: ${{ secrets.PGPASSWORD }}
-      - name: Run tests
-        continue-on-error: true
-        env:
-          KNAPSACK_PRO_REPO_PATH: ~/gems/knapsack_pro-ruby
-          KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC }}
-          KNAPSACK_PRO_LOG_DIR: reports
-          KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
-          KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          PGPASSWORD: ${{ secrets.PGPASSWORD }}
-        run: |
-           bundle exec rake knapsack_pro:queue:rspec > reports/test-report${{ matrix.ci_node_index }}.log
       - name: Upload coverage results
         uses: actions/upload-artifact@master
         if: always()
