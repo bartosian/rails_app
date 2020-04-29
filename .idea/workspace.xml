@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60b3e8e7-c8c5-4710-b209-8349f58b2403" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/auto_assign.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/auto_assign_reviewers.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/release_version_tag.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/rspec_knapsack.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/rspec_tests.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/rspec_tests_parallel.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/rspec_tests_remote_DB.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.ruby-version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sample_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sample_app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +26,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
